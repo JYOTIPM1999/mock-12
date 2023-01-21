@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 const UserModel = require("./model/user.schema");
 const jwt = require("jsonwebtoken");
 const cors = require("cors");
+const port = process.env.PORT || 8080;
 
 const app = express();
 app.use(express.json());
@@ -61,7 +62,7 @@ app.post("/calculate", async (req, res) => {
 mongoose
   .connect("mongodb+srv://jyoti:1234@cluster0.dptz3ei.mongodb.net/test")
   .then(() => {
-    app.listen(8080, () => {
+    app.listen(port, () => {
       console.log("http://localhost:8080");
     });
   });
